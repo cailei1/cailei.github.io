@@ -13,11 +13,11 @@
 
     <title>
         
-          心灵的一片净土 - 蔡磊的博客 | CaiLei&#39;s Blog
+          Android Activity再学习(Activity生命周期,启动模式,Intent Filter匹配) - 蔡磊的博客 | CaiLei&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://cai-lei.com/2016/09/07/心灵的一片净土/">
+    <link rel="canonical" href="http://cai-lei.com/2016/08/30/Android-Activity再学习/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -141,16 +141,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#life is a Marathon race" title="life is a Marathon race">life is a Marathon race</a>
+                          <a class="tag" href="/tags/#Android" title="Android">Android</a>
                         
-                          <a class="tag" href="/tags/#better late than never" title="better late than never">better late than never</a>
+                          <a class="tag" href="/tags/#读书笔记" title="读书笔记">读书笔记</a>
                         
                     </div>
-                    <h1>心灵的一片净土</h1>
+                    <h1>Android Activity再学习(Activity生命周期,启动模式,Intent Filter匹配)</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by Cai Lei on
-                        2016-09-07
+                        2016-08-30
                     </span>
                 </div>
             </div>
@@ -169,15 +169,37 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>​   花花世界，物欲横流，快节奏的生活，让那颗心变得膨胀起来。漆黑的夜晚，独坐于一方角落，聆听风的诉说。习习吹来的凉爽，吹散了膨胀的物欲。置身于凉风中，思绪也变得清明起来。似乎，也有很久没有如此轻松了吧！</p>
-<p>  当你的才华还撑不起你的野心的时候，你就应该静下心来学习；当你的能力还驾驭不了你的目标时，就应该沉下心来，历练；梦想，不是浮躁，而是沉淀和积累，只有拼出来的美丽，没有等出来的辉煌，机会永远是留给最渴望的那个人，学会与内心深处的你对话，问问自己，想要怎样的人生，静心学习，耐心沉淀，送给自己，共勉。</p>
-<p>&emsp;&emsp;人，来到这世上，总会有许多的不如意，也会有许多的不公平；会有许多的失落，也会有许多的羡慕。你羡慕我的自由，我羡慕你的约束；你羡慕我的车，我羡慕你的房；你羡慕我的工作，我羡慕你每天总有休息时间。或许，我们都是远视眼，总是活在对别人的仰视里；或许，我们都是近视眼，往往忽略了身边的幸福。</p>
-<p> &emsp;&emsp;事实上，大千世界，不会有两张一模一样的面孔，只要你仔细观察，总会有细微的差别。</p>
-<p>&emsp;&emsp;同是走兽，兔子娇小而青牛高大；同是飞禽，雄鹰高飞而紫燕低回。</p>
-<p>&emsp;&emsp;人，总会有智力、运气的差别；总会受环境、现实的约束；总会有人在你切一盘水果时，秒杀一道数学题；总会有人在你熟睡时，回想一天的得失；总会有人比你跑的快……参差不齐，才构成了这世界上一道道亮丽的风景。卞之琳说：你站在桥上看风景，看风景的人在楼上看你。是的，走在生活的风雨旅程中，当你羡慕别人住着高楼大厦时，也许瑟缩在墙角的人，正羡慕你有一座可以遮风的草屋；当你羡慕别人坐在豪华车里，而失意于自己在地上行走时，也许躺在病床上的人，正羡慕你还可以自由行走……</p>
-<p>&emsp;&emsp;有很多时候，我们往往不知道，自己在欣赏别人的时候，自己也成了别人眼中的风景。事实上，人生如一本厚重的书，有些书是没有主角的，因为我们忽视了自我；有些书是没有线索的，因为我们迷失了自我；有些书是没有内容的，因为我们埋没了自我。</p>
-<p>&emsp;&emsp;一生辗转千万里，莫问成败重几许，得之坦然，失之淡然，与其在别人的辉煌里仰望，不如亲手点亮自己的心灯，扬帆远航，把握最真实的自己，才会更深刻地解读自己。</p>
-<p>&emsp;&emsp;面向太阳吧，不问春暖花开，只求快乐面对，因为，透过洒满阳光的玻璃窗，蓦然回首，你何尝不是别人眼中的风景？</p>
+                <p>本文参考了任玉刚前辈的《Android开发艺术探索》  一书，可以说是该书相关内容的读书笔记。</p>
+<h3 id="（一）-Activity生命周期："><a href="#（一）-Activity生命周期：" class="headerlink" title="（一） Activity生命周期："></a>（一） Activity生命周期：</h3><p>正常启动：onCreate-&gt;onStart-&gt;onResume</p>
+<p>再回到：onRestart-&gt;onStart-&gt;onResume</p>
+<p>back键：onPause-&gt;onStop-&gt;onDestroy</p>
+<p> 到桌面或者打开新的：onPause-&gt;onStop</p>
+<p>onStart，onStop：是否可见</p>
+<p>onResume，onPause着重是否位于前台</p>
+<p>栈顶Activity需要先onPause,新Activity才能启动 onPause(旧）-&gt;onCreate-&gt;onStart-&gt;onResume-&gt;onStop（旧），  所以不能再onPause中做重量级的操作，应该在onStop中做操作，从而新的Activity尽快显示出来。</p>
+<p>异常情况：</p>
+<p>(1)资源相关配置改变（如横竖屏幕）</p>
+<p>onPause与onSaveInstanceState方法顺序不定-&gt;onStop-&gt;onDestroy，onSaveInstanceState方法保存的Bundle对象传递给onRestoreInstanceState和onCreate方法，重新创建的Activity  onCreate-&gt;onStart()-&gt;onRestoreInstanceState方法 取出Bundle并恢复数据。Activity委托Window保存数据，Window委托VIewGroup（DecorView)保存，ViewGroup委托View保存数据，典型的委托思想。推荐使用onRestoreInstanceState恢复数据，因为该bundle参数一旦有值，一定非空，而onCreate 则需要判断。</p>
+<pre><code>(2)资源内存不导致优先级低的Activity被杀死
+</code></pre><p>优先级高低情况：1.前台Activity最高 2.可见非前台次之 3,.后台Activity最低。</p>
+<p>若某项内容改变我们不需要让系统重新创建Activity可指定configChanges属性，会调用onConfigurationChanged方法，我们可以做些自己的特殊处理。</p>
+<h3 id="（二）Activity的launchMode（启动模式）"><a href="#（二）Activity的launchMode（启动模式）" class="headerlink" title="（二）Activity的launchMode（启动模式）"></a>（二）Activity的launchMode（启动模式）</h3><h4 id="（1）standard"><a href="#（1）standard" class="headerlink" title="（1）standard"></a>（1）standard</h4><p>标准的默认模式，是多实例的，谁启动了该模式的Activity，该Activity便会进入启动了它的Activity的任务栈（TaskStack），相关错误：ApplicationContext启动standard的Activity报错，原因：非Activity的前者无所谓的任务栈。可以为待启动的Activity指定FLAG_ACTIVITY——NEW_TASK标志位，启动时候会为其创建一个新的任务栈（见singleTaask 模式）</p>
+<h4 id="（2）singleTop"><a href="#（2）singleTop" class="headerlink" title="（2）singleTop"></a>（2）singleTop</h4><p>栈顶复用模式：新的Activity已在栈顶，不重复创建，同时它的onNewIntent方法会被回调，onCreate，onStart不会被系统调用。存在该实例在任务栈中，但不在栈顶则还会重新创建。</p>
+<h4 id="（3）singleTask"><a href="#（3）singleTask" class="headerlink" title="（3）singleTask"></a>（3）singleTask</h4><p>栈内复用模式：activity栈内存在，就不重新创建。首先寻找任务栈是否存在，无：创建任务栈，放入启动的Activity。有：有该Activity的实例么？无：创建该Activity放入任务栈的栈顶。有：把该Activity调到栈顶并clearTop，同时onNewIntent也会回调。</p>
+<h4 id="（4）singleInstance"><a href="#（4）singleInstance" class="headerlink" title="（4）singleInstance"></a>（4）singleInstance</h4><p>单实例模式，加强版singleTask，具有singleTask 的特点，同时具有该模式的Activity单独位于一个任务栈。</p>
+<p>指定启动模式的方法：XML属性里面的launchMode属性，和Java代码里的intent。addFlags();</p>
+<h3 id="（三）Activity的Flags"><a href="#（三）Activity的Flags" class="headerlink" title="（三）Activity的Flags"></a>（三）Activity的Flags</h3><p>FLAG_ACTIVITY_NEW_TASK</p>
+<p>FLAG_ACTIVITY_SINGLE_TOP</p>
+<p>FLAG_ACTIVITY_CLEAR_TOP</p>
+<p>FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS</p>
+<h3 id="（四）Intent-Filters匹配"><a href="#（四）Intent-Filters匹配" class="headerlink" title="（四）Intent Filters匹配"></a>（四）Intent Filters匹配</h3><p>该知识点主要用于Android隐式调用Activity，需要intent可以匹配目标组件的IntentFilter中设置的过滤信息，在XML文件中的Intent-filter属性，包含action、category、data，intent-filter可以有多个，intent满足一个filter的data、action、category即可。（同时满足这三者）。那么这三者各自的匹配规则又是怎样的呢？</p>
+<p>action匹配规则：action是一个字符串形式，任何一个action相同即匹配成功</p>
+<p>category匹配规则：可以没有category，或者是一旦有category，不管有几个，每个都要与filter中任何一个category相同，系统调用startActivity和startActivityForResult自动为intent添加了DEFAULT这个category，所以这个category就可以匹配过滤规则，同时为了activity接受隐式的调用，就必须在intent-filter中添加“android.intent.category.DEFAULT”这个category。</p>
+<p>data的匹配规则：与action类似</p>
+<p>data的结构：由二部分组成URI和mimeType，后者指得是媒体类型如image/jpeg等。前者包含 scheme、port、path、pathPrefix、pathPattern</p>
+<p>分别指URI模式，主机名、URI端口号、路径信息。过滤规则没指定URI则默认为content、file。也就是说没有指定的话，intent的URI部分要有content或者file的scheme，为intent指定完整的data要使用setDataAndType方法，而不是分开的setData或者setType，以为这二个方法彼此清除对方的值（从源码可以看出是把对方的值置为空）</p>
+<p>隐式启动intent注意的地方在于：我们可以做判断看是否activity匹配我们的intent，使用PackageManager的resolveActivity方法或者intent的resolveActivity方法，找不到匹配的Activity返回null，同时，PackageManager的queryIntentActivities方法返回所有成功匹配的Activities（复数形式），前者是指最佳匹配。</p>
+<p>Android入口Activity的action为MAIN，category为LAUNCHER 缺一不可。</p>
 
 
                 <hr>
@@ -187,13 +209,9 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2016/09/09/剑指Offer-面试题16-反转链表/" data-toggle="tooltip" data-placement="top" title="剑指Offer-面试题16-反转链表">&larr; Previous Post</a>
+                            <a href="/2016/09/01/剑指offer-面试题3-二维数组中的查找/" data-toggle="tooltip" data-placement="top" title="剑指offer-面试题3-二维数组中的查找">&larr; Previous Post</a>
                         </li>
                     
-                    
-                        <li class="next">
-                            <a href="/2016/09/06/Android-四大组件工作过程之Activity/" data-toggle="tooltip" data-placement="top" title="Android-四大组件工作过程之Activity">Next Post &rarr;</a>
-                        </li>
                     
                 </ul>
 
@@ -201,9 +219,9 @@
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                        data-thread-key="2016/09/07/心灵的一片净土/"
-                        data-title="心灵的一片净土"
-                        data-url="http://cai-lei.com/2016/09/07/心灵的一片净土/" >
+                        data-thread-key="2016/08/30/Android-Activity再学习/"
+                        data-title="Android Activity再学习(Activity生命周期,启动模式,Intent Filter匹配)"
+                        data-url="http://cai-lei.com/2016/08/30/Android-Activity再学习/" >
                     </div>
                 </div>
                 <!-- 多说评论框 end -->

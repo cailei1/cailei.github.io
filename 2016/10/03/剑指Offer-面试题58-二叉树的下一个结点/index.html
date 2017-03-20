@@ -13,11 +13,11 @@
 
     <title>
         
-          心灵的一片净土 - 蔡磊的博客 | CaiLei&#39;s Blog
+          剑指Offer-面试题58-二叉树的下一个结点 - 蔡磊的博客 | CaiLei&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://cai-lei.com/2016/09/07/心灵的一片净土/">
+    <link rel="canonical" href="http://cai-lei.com/2016/10/03/剑指Offer-面试题58-二叉树的下一个结点/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -141,16 +141,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#life is a Marathon race" title="life is a Marathon race">life is a Marathon race</a>
+                          <a class="tag" href="/tags/#剑指Offer" title="剑指Offer">剑指Offer</a>
                         
-                          <a class="tag" href="/tags/#better late than never" title="better late than never">better late than never</a>
+                          <a class="tag" href="/tags/#算法" title="算法">算法</a>
                         
                     </div>
-                    <h1>心灵的一片净土</h1>
+                    <h1>剑指Offer-面试题58-二叉树的下一个结点</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by Cai Lei on
-                        2016-09-07
+                        2016-10-03
                     </span>
                 </div>
             </div>
@@ -169,15 +169,18 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>​   花花世界，物欲横流，快节奏的生活，让那颗心变得膨胀起来。漆黑的夜晚，独坐于一方角落，聆听风的诉说。习习吹来的凉爽，吹散了膨胀的物欲。置身于凉风中，思绪也变得清明起来。似乎，也有很久没有如此轻松了吧！</p>
-<p>  当你的才华还撑不起你的野心的时候，你就应该静下心来学习；当你的能力还驾驭不了你的目标时，就应该沉下心来，历练；梦想，不是浮躁，而是沉淀和积累，只有拼出来的美丽，没有等出来的辉煌，机会永远是留给最渴望的那个人，学会与内心深处的你对话，问问自己，想要怎样的人生，静心学习，耐心沉淀，送给自己，共勉。</p>
-<p>&emsp;&emsp;人，来到这世上，总会有许多的不如意，也会有许多的不公平；会有许多的失落，也会有许多的羡慕。你羡慕我的自由，我羡慕你的约束；你羡慕我的车，我羡慕你的房；你羡慕我的工作，我羡慕你每天总有休息时间。或许，我们都是远视眼，总是活在对别人的仰视里；或许，我们都是近视眼，往往忽略了身边的幸福。</p>
-<p> &emsp;&emsp;事实上，大千世界，不会有两张一模一样的面孔，只要你仔细观察，总会有细微的差别。</p>
-<p>&emsp;&emsp;同是走兽，兔子娇小而青牛高大；同是飞禽，雄鹰高飞而紫燕低回。</p>
-<p>&emsp;&emsp;人，总会有智力、运气的差别；总会受环境、现实的约束；总会有人在你切一盘水果时，秒杀一道数学题；总会有人在你熟睡时，回想一天的得失；总会有人比你跑的快……参差不齐，才构成了这世界上一道道亮丽的风景。卞之琳说：你站在桥上看风景，看风景的人在楼上看你。是的，走在生活的风雨旅程中，当你羡慕别人住着高楼大厦时，也许瑟缩在墙角的人，正羡慕你有一座可以遮风的草屋；当你羡慕别人坐在豪华车里，而失意于自己在地上行走时，也许躺在病床上的人，正羡慕你还可以自由行走……</p>
-<p>&emsp;&emsp;有很多时候，我们往往不知道，自己在欣赏别人的时候，自己也成了别人眼中的风景。事实上，人生如一本厚重的书，有些书是没有主角的，因为我们忽视了自我；有些书是没有线索的，因为我们迷失了自我；有些书是没有内容的，因为我们埋没了自我。</p>
-<p>&emsp;&emsp;一生辗转千万里，莫问成败重几许，得之坦然，失之淡然，与其在别人的辉煌里仰望，不如亲手点亮自己的心灯，扬帆远航，把握最真实的自己，才会更深刻地解读自己。</p>
-<p>&emsp;&emsp;面向太阳吧，不问春暖花开，只求快乐面对，因为，透过洒满阳光的玻璃窗，蓦然回首，你何尝不是别人眼中的风景？</p>
+                <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>给定一棵二叉树和其中的一个结点，如何找出中序遍历顺序的下一个结点？树中的结点除了有两个分别指向左右子结点的指针以外，还有一个指向父结点的指针。</p>
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><ol>
+<li><p>如果一个结点有右子树，那么它的下一个结点就是它的右子树的最左子结点。</p>
+</li>
+<li><p>（1）如果一个结点没有右子树，并且这个结点是它父结点的左子结点。那么它的下一个结点就是它的父结点。</p>
+<p>（2）如果一个结点没有右子树，并且这个结点是它父结点的右子结点。那么我们可以沿着父结点的指针一路向上遍历，直到我们找到一个结点，这个结点是它父结点的左子结点。我们就停止，这个结点的父结点就是我们找到的下一个结点。之所以如此是因为：这个点是父结点的左子结点说明这结点开始是一个子树。根据中序遍历下一个自然是根了，也就是父结点。</p>
+</li>
+</ol>
+<h2 id="参考代码："><a href="#参考代码：" class="headerlink" title="参考代码："></a>参考代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Algorithm;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Lunar on 2016/3/29.</div><div class="line"> * 剑指Offer第五十八题：二叉树的下一个结点</div><div class="line"> * 题目：给定一棵二叉树和其中的一个结点，如何找出中序遍历顺序的下一个结点？树中的结点除了有二个分别指向</div><div class="line"> * 左右子结点的指针外，还有一个指向父结点的指针。</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetNext</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">static</span> BinaryTreeNode <span class="title">getNext</span><span class="params">(BinaryTreeNode node)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        <span class="comment">//如果一个结点的右子树存在，则该结点的右子树的最左结点是其的下一个结点</span></div><div class="line">        BinaryTreeNode next = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">if</span> (node.right != <span class="keyword">null</span>) &#123;</div><div class="line">            BinaryTreeNode nodeRight = node.right;</div><div class="line">            <span class="keyword">while</span> (nodeRight.left != <span class="keyword">null</span>) &#123;</div><div class="line">                nodeRight = nodeRight.left;</div><div class="line">            &#125;</div><div class="line">            next = nodeRight;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (node.parent != <span class="keyword">null</span>) &#123;</div><div class="line">            BinaryTreeNode current = node;</div><div class="line">            BinaryTreeNode nodeParent = node.parent;</div><div class="line">            <span class="comment">//当结点父结点存在并且当前结点是父结点的右子结点。向上遍历到某个父结点是作为另外一个父结点的左子点时候</span></div><div class="line">            <span class="keyword">while</span> (nodeParent != <span class="keyword">null</span> &amp;&amp; current == nodeParent.right) &#123;</div><div class="line">                current = nodeParent;</div><div class="line">                nodeParent = nodeParent.parent;</div><div class="line">            &#125;</div><div class="line">            next = nodeParent;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        BinaryTreeNode root = <span class="keyword">new</span> BinaryTreeNode(<span class="number">8</span>);</div><div class="line">        BinaryTreeNode t1 = <span class="keyword">new</span> BinaryTreeNode(<span class="number">6</span>);</div><div class="line">        BinaryTreeNode t2 = <span class="keyword">new</span> BinaryTreeNode(<span class="number">10</span>);</div><div class="line">        BinaryTreeNode t3 = <span class="keyword">new</span> BinaryTreeNode(<span class="number">5</span>);</div><div class="line">        BinaryTreeNode t4 = <span class="keyword">new</span> BinaryTreeNode(<span class="number">7</span>);</div><div class="line">        BinaryTreeNode t5 = <span class="keyword">new</span> BinaryTreeNode(<span class="number">9</span>);</div><div class="line">        BinaryTreeNode t6 = <span class="keyword">new</span> BinaryTreeNode(<span class="number">11</span>);</div><div class="line">        root.setLeft(t1);</div><div class="line">        root.setRight(t2);</div><div class="line">        t1.setLeft(t3);</div><div class="line">        t1.setRight(t4);</div><div class="line">        t2.setLeft(t5);</div><div class="line">        t2.setRight(t6);</div><div class="line">        <span class="comment">//设置父结点指针</span></div><div class="line">        t3.setParent(t1);</div><div class="line">        t4.setParent(t1);</div><div class="line"></div><div class="line">        t5.setParent(t2);</div><div class="line">        t6.setParent(t2);</div><div class="line"></div><div class="line">        t1.setParent(root);</div><div class="line">        t2.setParent(root);</div><div class="line">        <span class="comment">//使用getValue,输出结点存储的值</span></div><div class="line">        System.out.println(getNext(root).getValue());</div><div class="line">        System.out.println(getNext(t4).getValue());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h2><ol>
+<li>本代码中的<code>else if</code>语句相当于思路中的第二种情况，因为有个while循环中的判断，判断里说是当前结点是父结点的右结点的时候进行的动作，若是左子结点，无论是直接就是左子结点还是一路向上到达左子结点都会执行<code>node = nodeParent;</code>的语句的。</li>
+</ol>
 
 
                 <hr>
@@ -187,12 +190,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2016/09/09/剑指Offer-面试题16-反转链表/" data-toggle="tooltip" data-placement="top" title="剑指Offer-面试题16-反转链表">&larr; Previous Post</a>
+                            <a href="/2016/10/03/剑指Offer-面试题-64-数据流中的中位数/" data-toggle="tooltip" data-placement="top" title="剑指Offer-面试题64-数据流中的中位数">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2016/09/06/Android-四大组件工作过程之Activity/" data-toggle="tooltip" data-placement="top" title="Android-四大组件工作过程之Activity">Next Post &rarr;</a>
+                            <a href="/2016/10/03/剑指Offer-面试题59-对称的二叉树/" data-toggle="tooltip" data-placement="top" title="剑指Offer-面试题59-对称的二叉树">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -201,9 +204,9 @@
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                        data-thread-key="2016/09/07/心灵的一片净土/"
-                        data-title="心灵的一片净土"
-                        data-url="http://cai-lei.com/2016/09/07/心灵的一片净土/" >
+                        data-thread-key="2016/10/03/剑指Offer-面试题58-二叉树的下一个结点/"
+                        data-title="剑指Offer-面试题58-二叉树的下一个结点"
+                        data-url="http://cai-lei.com/2016/10/03/剑指Offer-面试题58-二叉树的下一个结点/" >
                     </div>
                 </div>
                 <!-- 多说评论框 end -->

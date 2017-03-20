@@ -17,7 +17,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://cai-lei.com/">
+    <link rel="canonical" href="http://cai-lei.com/page/2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -160,23 +160,21 @@
 
 <div class="post-preview">
 
-    <a href="/2016/10/13/剑指Offer-面试题31-连续子数组的最大和/">
+    <a href="/2016/09/12/数据结构之图/">
         <h2 class="post-title">
-            剑指Offer-面试题31-连续子数组的最大和
+            数据结构之图
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            题目:输入一个整型数组，数组里有正数也有负数。数组中一个或连续的多个整数组成一个子数组。求所有子数组的和的最大值。要求时间复杂度为O(n)。
-思路：
-如果现在的和curSum是负的，那么它加上一个数array[i]会比array[i]更小，无论array[i]是正数还是负数。那么把curSum赋值为array[i]。和就更大了。
-如果现在的和curSum是正数，那么和就加上此刻遍历到的arr......
+            一.图的概念
+  不想像书上那样用集合这种术语来定义它,通俗点解释吧。相信大家都玩过连连看,其实图就是你在一张白纸上画几个点，这几个点你可以像玩连连看一样把它们连起来。当然，你玩连连看的时候是不是会有没有找到相同的图片可连，这种情况对于图来说也是允许的，即全部都是点，没有一条连线（这让我想到了和尚头上的那几个点，其实就是一种图）。图与树和线性表的区别是：树和线性表可以为空，但图不行，它至少得......
         </div>
     </a>
     <p class="post-meta">
         Posted by Cai Lei on
-        2016-10-13
+        2016-09-12
     </p>
 
 </div>
@@ -184,168 +182,59 @@
 
 <div class="post-preview">
 
-    <a href="/2016/10/09/剑指Offer-面试题21-包含min函数的栈/">
+    <a href="/2016/09/11/Java面试基础知识总结/">
         <h2 class="post-title">
-            剑指Offer-面试题21-包含min函数的栈
+            Java面试基础知识
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            题目：定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的min函数，在该栈中调用min、push及pop的时间复杂度都是O(1)。
-需要考虑的问题：
-若采用排序法，使栈顶元素最小，那么如何保证最后压入栈的元素能够先出栈？
-保证若最小元素由于栈的特性弹出了，如何得到次小元素呢？
+            此片文章主要是参考一片面经这里,进行的部分解答，最初的手写稿在2016年的3月和4月，最近重新整理准备相关的校招面试，发布在此。
+Java基础：
+九种基本数据类型的大小以及它们的封装类。
 
-思路：每次插入元素（值）value时候，数据栈stackData都压入这个自不必说。压入辅助栈的时候，把......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Cai Lei on
-        2016-10-09
-    </p>
 
-</div>
-<hr>
 
-<div class="post-preview">
 
-    <a href="/2016/10/08/剑指Offer-面试题8-旋转数组的最小数字/">
-        <h2 class="post-title">
-            剑指Offer-面试题8-旋转数组的最小数字
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            题目：把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1.
-思路：旋转后可以划分为2个排序的子数组，而且前面的子数组元素都大于或者等于后面的子数组的元素。因为递增数组，最小的元素刚好是2个子数组分界线。（第一个元素&gt;=最后一个元素......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Cai Lei on
-        2016-10-08
-    </p>
+基本类型
+位数
+字节数
+包装类
 
-</div>
-<hr>
 
-<div class="post-preview">
 
-    <a href="/2016/10/08/剑指Offer-面试题7-用两个栈实现队列/">
-        <h2 class="post-title">
-            剑指Offer-面试题7-用两个栈实现队列
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            题目：用两个栈实现一个队列。队列的声明如下，请实现它的两个函数appendTail和deleteHead分别完成在队列尾部插入结点和在队列头部删除结点的功能。
-思路：准备二个栈，插入数据的时候，压入栈1中。弹出数据的时候，当栈1非空，则把栈1的数据放入到栈2，栈2顶部的数据就是很早之前压入栈1的数据，也就是先进入的数据。
-参考代码：123456789101112131415161718192......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Cai Lei on
-        2016-10-08
-    </p>
 
-</div>
-<hr>
+int
+32
+4
+Integer
 
-<div class="post-preview">
 
-    <a href="/2016/10/03/剑指Offer-面试题-64-数据流中的中位数/">
-        <h2 class="post-title">
-            剑指Offer-面试题64-数据流中的中位数
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            题目：如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值。
-思路：出于插入的效率和得到中位数的效率，数组和链表都不太可行，二叉搜索树的最坏情况也会导致$$O(n)$$ 的效率。大多数语言都没有实现AVL树。因此采用堆的方式，Java中优先队列PriorityQ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Cai Lei on
-        2016-10-03
-    </p>
+short
+16
+2
+Short
 
-</div>
-<hr>
 
-<div class="post-preview">
-
-    <a href="/2016/10/03/剑指Offer-面试题58-二叉树的下一个结点/">
-        <h2 class="post-title">
-            剑指Offer-面试题58-二叉树的下一个结点
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            题目：给定一棵二叉树和其中的一个结点，如何找出中序遍历顺序的下一个结点？树中的结点除了有两个分别指向左右子结点的指针以外，还有一个指向父结点的指针。
-思路：
-如果一个结点有右子树，那么它的下一个结点就是它的右子树的最左子结点。
-
-（1）如果一个结点没有右子树，并且这个结点是它父结点的左子结点。那么它的下一个结点就是它的父结点。
-（2）如果一个结点没有右子树，并且这个结点是它父结点的右子结点。......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Cai Lei on
-        2016-10-03
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/10/03/剑指Offer-面试题59-对称的二叉树/">
-        <h2 class="post-title">
-            剑指Offer-面试题59-对称的二叉树
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            题目：请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。
-思路：我们可以通过比较二叉树的先序遍历序列和对称先序遍历序列来判断二叉树是不是对称的，但是要注意的是要对空结点也要考虑在内。以防止各个点都一样的情况造成判断错误。
-参考代码：12345678910111213141516171819202122232425262728293031/*publ......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Cai Lei on
-        2016-10-03
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2016/10/01/剑指Offer-面试题60-把二叉树打印成多行/">
-        <h2 class="post-title">
-            剑指Offer-面试题60-把二叉树打印成多行
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            题目:从上到下按层打印二叉树，同一层的结点按从左到右的顺序打印，每一层打印到一行。例如，打印图中二叉树的结点为：
-
+long
+64
 8
-6 10
-5 7 9 11
+Long
 
-思路:本题目与本博客的剑指Offer-面试题23-从上到下打印二叉树的思路其实差不多，代码也差不多。唯一的不同在于为了每一层一行输出，我们添加了二个变量，一个变量toBePrinted表示当前层中还没有打印（也就是本层待打印）的结点数，一个变量......
+
+float
+32
+4
+Float
+
+
+doubl......
         </div>
     </a>
     <p class="post-meta">
         Posted by Cai Lei on
-        2016-10-01
+        2016-09-11
     </p>
 
 </div>
@@ -353,22 +242,20 @@
 
 <div class="post-preview">
 
-    <a href="/2016/10/01/剑指Offer-面试题23-从上往下打印二叉树-按层次遍历二叉树/">
+    <a href="/2016/09/09/剑指Offer-面试题16-反转链表/">
         <h2 class="post-title">
-            剑指Offer-面试题23-从上往下打印二叉树(按层次遍历二叉树)
+            剑指Offer-面试题16-反转链表
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            题目:从上往下打印出二叉树的每个结点，同一层的结点按照从左向右的顺序打印，例如输入图中的二叉树，则依次打印出8,6,10,5,7,9,1。
-思路:本题主要考察二叉树的遍历算法中的按层次遍历，主要思想是：使用一个队列，当我们每打印一个结点的时候，如果该结点有子结点则把子节点加入队列的末尾，接下来从队列头取出最早进入队列的结点，重复前面的操作，直到队列中的所有的结点被打印出来为止。
-参考代码:1......
+            ...
         </div>
     </a>
     <p class="post-meta">
         Posted by Cai Lei on
-        2016-10-01
+        2016-09-09
     </p>
 
 </div>
@@ -376,23 +263,169 @@
 
 <div class="post-preview">
 
-    <a href="/2016/09/27/Java虚拟机学习/">
+    <a href="/2016/09/07/心灵的一片净土/">
         <h2 class="post-title">
-            Java虚拟机学习
+            心灵的一片净土
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            [TOC]
-一、内存模型以及分区：运行时数据区主要分为：虚拟机栈(VM Stack)，本地方法栈（Native Method Stack），程序计数器，方法区(Method Area)，堆(Heap)。
-其中线程共享的区域是：方法区和堆。线程隔离的是虚拟机栈，本地方法栈，程序计数器。
-程序计数器：是当前线程所执行的字节码的行号指示器，线程私有（相互隔离），唯一没规定OOM Error的区域。......
+            ​   花花世界，物欲横流，快节奏的生活，让那颗心变得膨胀起来。漆黑的夜晚，独坐于一方角落，聆听风的诉说。习习吹来的凉爽，吹散了膨胀的物欲。置身于凉风中，思绪也变得清明起来。似乎，也有很久没有如此轻松了吧！
+  当你的才华还撑不起你的野心的时候，你就应该静下心来学习；当你的能力还驾驭不了你的目标时，就应该沉下心来，历练；梦想，不是浮躁，而是沉淀和积累，只有拼出来的美丽，没有等出来的辉煌，机会......
         </div>
     </a>
     <p class="post-meta">
         Posted by Cai Lei on
-        2016-09-27
+        2016-09-07
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/09/06/Android-四大组件工作过程之Activity/">
+        <h2 class="post-title">
+            Android-四大组件工作过程之Activity
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            今天复习了Android四大组件的启动过程中的Activity的启动过程，四大组件在Android开发中的地位不言而喻，分别是Activity，Service，BroadcastReceiver, ContentProvider。这四大组件只有ContentProvider不需要借助Intent启动，BroadcastReceiver既可以在Manifest布局文件中进行注册也可以在Java......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Cai Lei on
+        2016-09-06
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/09/05/View的事件体系、事件分发机制及相关源码分析/">
+        <h2 class="post-title">
+            View的事件体系、事件分发机制及相关源码分析
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+              今天主要记录View的事件体系和事件分发机制，事件分发机制的相关源码和大致流程。
+一、 几个概念
+如图所示
+1234left = getLeft();right = getRight();bottom = getBottom();top = getTop();
+left, top代表View左上角距离父控件（父容器）的x和y距离，也就是一种相对坐标 ，同理，bottom,right代表V......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Cai Lei on
+        2016-09-05
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/09/04/Android-View的工作原理和源码分析/">
+        <h2 class="post-title">
+            Android-View的工作原理和源码分析
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Android-View的工作原理和源码分析主要讲的是Android View的工作原理。
+一、几个概念：
+ViewRoot
+对应类ViewRootImpl，是连接WindowManager和DecorVIew的纽带。在AndroidThread中，Activity创建后DecorView加入到Window,并创建VIewRootImpl并将ViewRootImpl与DecorView建立关......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Cai Lei on
+        2016-09-04
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/09/03/Git-常见错误及其解决方式/">
+        <h2 class="post-title">
+            Git 常见错误及其解决方式
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            之前学过Git，最近在使用的时候忘了不少Git的内容，现在把遇到的一些常见错误记录在此，不断更新。
+1.fatal:remote origin already existsgit remote rm origin
+然后git remote add origin git@github…..
+2.版本回退git reset –hard (commit id)
+3.创建与合并分支git check......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Cai Lei on
+        2016-09-03
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/09/03/剑指Offer-面试题37-两个链表的第一个公共结点/">
+        <h2 class="post-title">
+            剑指Offer-面试题37-两个链表的第一个公共结点
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            昨日在58的笔试上遇到了剑指Offer的面试题37，特此复习一番。
+题目：输入两个链表，找出它们的第一个公共结点。
+思路：​    一、 可以利用栈的特点来解决
+1. 分别把两个链表的结点放入两个栈里，于是尾结点就是位于两个栈的栈顶了。
+2. 比较二个栈顶的结点是否相同，如果相同则把栈顶结点弹出，接着比，直到找到最后一个相同的结点。
+   二、 比较链表长度法
+
+首先比较两条链表的长度，得到......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Cai Lei on
+        2016-09-03
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/09/03/剑指Offer-面试题44-扑克牌的顺子/">
+        <h2 class="post-title">
+            剑指Offer-面试题44-扑克牌的顺子
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            ​    昨日做了58同城的笔试题，里面涉及到了《剑指Offer》的题目，其中有一个就是面试题44：扑克牌的顺子，现复习一番。
+题目：​    从扑克牌中随机抽5张牌，判断是不是一个顺子， 即这5张牌是不是连续的。2～10为数字本身， A为1。 J为11、Q为12、 为13。大、小王可以看成任意数字。
+思路：
+把大小王都当做0，用于补充空缺。
+排序后的数组若不连续，相邻的数字隔若干个数字，统......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Cai Lei on
+        2016-09-03
     </p>
 
 </div>
@@ -404,9 +437,13 @@
 
 <ul class="pager">
     
+        <li class="previous">
+            <a href="/">&larr; Newer Posts</a>
+        </li>
+    
     
         <li class="next">
-            <a href="/page/2/">Older Posts &rarr;</a>
+            <a href="/page/3/">Older Posts &rarr;</a>
         </li>
     
 </ul>

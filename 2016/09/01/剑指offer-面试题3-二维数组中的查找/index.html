@@ -13,11 +13,11 @@
 
     <title>
         
-          心灵的一片净土 - 蔡磊的博客 | CaiLei&#39;s Blog
+          剑指offer-面试题3-二维数组中的查找 - 蔡磊的博客 | CaiLei&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://cai-lei.com/2016/09/07/心灵的一片净土/">
+    <link rel="canonical" href="http://cai-lei.com/2016/09/01/剑指offer-面试题3-二维数组中的查找/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -141,16 +141,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#life is a Marathon race" title="life is a Marathon race">life is a Marathon race</a>
+                          <a class="tag" href="/tags/#算法" title="算法">算法</a>
                         
-                          <a class="tag" href="/tags/#better late than never" title="better late than never">better late than never</a>
+                          <a class="tag" href="/tags/#剑指offer" title="剑指offer">剑指offer</a>
                         
                     </div>
-                    <h1>心灵的一片净土</h1>
+                    <h1>剑指offer-面试题3-二维数组中的查找</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by Cai Lei on
-                        2016-09-07
+                        2016-09-01
                     </span>
                 </div>
             </div>
@@ -169,15 +169,17 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>​   花花世界，物欲横流，快节奏的生活，让那颗心变得膨胀起来。漆黑的夜晚，独坐于一方角落，聆听风的诉说。习习吹来的凉爽，吹散了膨胀的物欲。置身于凉风中，思绪也变得清明起来。似乎，也有很久没有如此轻松了吧！</p>
-<p>  当你的才华还撑不起你的野心的时候，你就应该静下心来学习；当你的能力还驾驭不了你的目标时，就应该沉下心来，历练；梦想，不是浮躁，而是沉淀和积累，只有拼出来的美丽，没有等出来的辉煌，机会永远是留给最渴望的那个人，学会与内心深处的你对话，问问自己，想要怎样的人生，静心学习，耐心沉淀，送给自己，共勉。</p>
-<p>&emsp;&emsp;人，来到这世上，总会有许多的不如意，也会有许多的不公平；会有许多的失落，也会有许多的羡慕。你羡慕我的自由，我羡慕你的约束；你羡慕我的车，我羡慕你的房；你羡慕我的工作，我羡慕你每天总有休息时间。或许，我们都是远视眼，总是活在对别人的仰视里；或许，我们都是近视眼，往往忽略了身边的幸福。</p>
-<p> &emsp;&emsp;事实上，大千世界，不会有两张一模一样的面孔，只要你仔细观察，总会有细微的差别。</p>
-<p>&emsp;&emsp;同是走兽，兔子娇小而青牛高大；同是飞禽，雄鹰高飞而紫燕低回。</p>
-<p>&emsp;&emsp;人，总会有智力、运气的差别；总会受环境、现实的约束；总会有人在你切一盘水果时，秒杀一道数学题；总会有人在你熟睡时，回想一天的得失；总会有人比你跑的快……参差不齐，才构成了这世界上一道道亮丽的风景。卞之琳说：你站在桥上看风景，看风景的人在楼上看你。是的，走在生活的风雨旅程中，当你羡慕别人住着高楼大厦时，也许瑟缩在墙角的人，正羡慕你有一座可以遮风的草屋；当你羡慕别人坐在豪华车里，而失意于自己在地上行走时，也许躺在病床上的人，正羡慕你还可以自由行走……</p>
-<p>&emsp;&emsp;有很多时候，我们往往不知道，自己在欣赏别人的时候，自己也成了别人眼中的风景。事实上，人生如一本厚重的书，有些书是没有主角的，因为我们忽视了自我；有些书是没有线索的，因为我们迷失了自我；有些书是没有内容的，因为我们埋没了自我。</p>
-<p>&emsp;&emsp;一生辗转千万里，莫问成败重几许，得之坦然，失之淡然，与其在别人的辉煌里仰望，不如亲手点亮自己的心灯，扬帆远航，把握最真实的自己，才会更深刻地解读自己。</p>
-<p>&emsp;&emsp;面向太阳吧，不问春暖花开，只求快乐面对，因为，透过洒满阳光的玻璃窗，蓦然回首，你何尝不是别人眼中的风景？</p>
+                <p><strong>题目</strong>:在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增顺序排序。请完成一个函数，输入这样一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<p><strong>思路</strong>:在一张二维的矩阵中，取右上角元素为初始元素（即为i = 0; j = columns - 1;时候的情况）然后在while循环中做判断，</p>
+<ol>
+<li>如果元素正好等于目标元素target则find为true，并跳出while循环，此时会运行到return find语句返回true。</li>
+<li>其次若元素大于目标元素target，则说明要往左侧走（因为满足向右递增，向下递增），即为–j,行不变，列减小就达到了左走的目的。</li>
+<li>否则小于的话则向下走，即为++i,列不变，行增加就达到了下走的目的。</li>
+</ol>
+<p><strong>代码如下</strong>: </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Algorithm;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Lunar on 2016/3/5.</div><div class="line"> * 杨氏矩阵查找：行列递增的矩阵的查找</div><div class="line"> * 二维数组的行数和列数</div><div class="line"> * array.length 就是行数</div><div class="line"> * array [0].length 就是列数</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">YoungMatrix</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[][] matrix = &#123;</div><div class="line">                &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">9</span>&#125;,</div><div class="line">                &#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">12</span>&#125;,</div><div class="line">                &#123;<span class="number">4</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">13</span>&#125;,</div><div class="line">                &#123;<span class="number">6</span>, <span class="number">8</span>, <span class="number">11</span>, <span class="number">15</span>&#125;</div><div class="line">        &#125;;</div><div class="line">        System.out.print(youngMatrix(matrix, <span class="number">19</span>));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">youngMatrix</span><span class="params">(<span class="keyword">int</span> array[][], <span class="keyword">int</span> target)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (array == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">boolean</span> find = <span class="keyword">false</span>;</div><div class="line">        <span class="comment">//二维数组的行数</span></div><div class="line">        <span class="keyword">int</span> rows = array.length;</div><div class="line">        <span class="comment">//二维数组的列数</span></div><div class="line">        <span class="keyword">int</span> columns = array[<span class="number">0</span>].length;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (rows &gt; <span class="number">0</span> &amp;&amp; columns &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">//初始位置：右上角</span></div><div class="line">            <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">            <span class="keyword">int</span> j = columns - <span class="number">1</span>;</div><div class="line"></div><div class="line">            <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; i &lt; rows) &#123;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (array[i][j] == target) &#123;</div><div class="line">                    find = <span class="keyword">true</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line"></div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (array[i][j] &gt; target) &#123;</div><div class="line">                    --j;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    ++i;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> find;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其他《剑指offer题目代码》请戳<a href="https://github.com/Pisceslau/Algorithm" target="_blank" rel="external">这里</a></p>
+<p><strong>转载请注明出处</strong> </p>
 
 
                 <hr>
@@ -187,12 +189,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2016/09/09/剑指Offer-面试题16-反转链表/" data-toggle="tooltip" data-placement="top" title="剑指Offer-面试题16-反转链表">&larr; Previous Post</a>
+                            <a href="/2016/09/01/数据结构之树/" data-toggle="tooltip" data-placement="top" title="数据结构之树">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2016/09/06/Android-四大组件工作过程之Activity/" data-toggle="tooltip" data-placement="top" title="Android-四大组件工作过程之Activity">Next Post &rarr;</a>
+                            <a href="/2016/08/30/Android-Activity再学习/" data-toggle="tooltip" data-placement="top" title="Android Activity再学习(Activity生命周期,启动模式,Intent Filter匹配)">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -201,9 +203,9 @@
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                        data-thread-key="2016/09/07/心灵的一片净土/"
-                        data-title="心灵的一片净土"
-                        data-url="http://cai-lei.com/2016/09/07/心灵的一片净土/" >
+                        data-thread-key="2016/09/01/剑指offer-面试题3-二维数组中的查找/"
+                        data-title="剑指offer-面试题3-二维数组中的查找"
+                        data-url="http://cai-lei.com/2016/09/01/剑指offer-面试题3-二维数组中的查找/" >
                     </div>
                 </div>
                 <!-- 多说评论框 end -->

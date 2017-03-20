@@ -13,11 +13,11 @@
 
     <title>
         
-          心灵的一片净土 - 蔡磊的博客 | CaiLei&#39;s Blog
+          剑指Offer-面试题8-旋转数组的最小数字 - 蔡磊的博客 | CaiLei&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://cai-lei.com/2016/09/07/心灵的一片净土/">
+    <link rel="canonical" href="http://cai-lei.com/2016/10/08/剑指Offer-面试题8-旋转数组的最小数字/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -141,16 +141,16 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#life is a Marathon race" title="life is a Marathon race">life is a Marathon race</a>
+                          <a class="tag" href="/tags/#剑指Offer" title="剑指Offer">剑指Offer</a>
                         
-                          <a class="tag" href="/tags/#better late than never" title="better late than never">better late than never</a>
+                          <a class="tag" href="/tags/#算法" title="算法">算法</a>
                         
                     </div>
-                    <h1>心灵的一片净土</h1>
+                    <h1>剑指Offer-面试题8-旋转数组的最小数字</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by Cai Lei on
-                        2016-09-07
+                        2016-10-08
                     </span>
                 </div>
             </div>
@@ -169,15 +169,22 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>​   花花世界，物欲横流，快节奏的生活，让那颗心变得膨胀起来。漆黑的夜晚，独坐于一方角落，聆听风的诉说。习习吹来的凉爽，吹散了膨胀的物欲。置身于凉风中，思绪也变得清明起来。似乎，也有很久没有如此轻松了吧！</p>
-<p>  当你的才华还撑不起你的野心的时候，你就应该静下心来学习；当你的能力还驾驭不了你的目标时，就应该沉下心来，历练；梦想，不是浮躁，而是沉淀和积累，只有拼出来的美丽，没有等出来的辉煌，机会永远是留给最渴望的那个人，学会与内心深处的你对话，问问自己，想要怎样的人生，静心学习，耐心沉淀，送给自己，共勉。</p>
-<p>&emsp;&emsp;人，来到这世上，总会有许多的不如意，也会有许多的不公平；会有许多的失落，也会有许多的羡慕。你羡慕我的自由，我羡慕你的约束；你羡慕我的车，我羡慕你的房；你羡慕我的工作，我羡慕你每天总有休息时间。或许，我们都是远视眼，总是活在对别人的仰视里；或许，我们都是近视眼，往往忽略了身边的幸福。</p>
-<p> &emsp;&emsp;事实上，大千世界，不会有两张一模一样的面孔，只要你仔细观察，总会有细微的差别。</p>
-<p>&emsp;&emsp;同是走兽，兔子娇小而青牛高大；同是飞禽，雄鹰高飞而紫燕低回。</p>
-<p>&emsp;&emsp;人，总会有智力、运气的差别；总会受环境、现实的约束；总会有人在你切一盘水果时，秒杀一道数学题；总会有人在你熟睡时，回想一天的得失；总会有人比你跑的快……参差不齐，才构成了这世界上一道道亮丽的风景。卞之琳说：你站在桥上看风景，看风景的人在楼上看你。是的，走在生活的风雨旅程中，当你羡慕别人住着高楼大厦时，也许瑟缩在墙角的人，正羡慕你有一座可以遮风的草屋；当你羡慕别人坐在豪华车里，而失意于自己在地上行走时，也许躺在病床上的人，正羡慕你还可以自由行走……</p>
-<p>&emsp;&emsp;有很多时候，我们往往不知道，自己在欣赏别人的时候，自己也成了别人眼中的风景。事实上，人生如一本厚重的书，有些书是没有主角的，因为我们忽视了自我；有些书是没有线索的，因为我们迷失了自我；有些书是没有内容的，因为我们埋没了自我。</p>
-<p>&emsp;&emsp;一生辗转千万里，莫问成败重几许，得之坦然，失之淡然，与其在别人的辉煌里仰望，不如亲手点亮自己的心灯，扬帆远航，把握最真实的自己，才会更深刻地解读自己。</p>
-<p>&emsp;&emsp;面向太阳吧，不问春暖花开，只求快乐面对，因为，透过洒满阳光的玻璃窗，蓦然回首，你何尝不是别人眼中的风景？</p>
+                <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。输入一个递增排序的数组的一个旋转，输出旋转数组的最小元素。例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1.</p>
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>旋转后可以划分为2个排序的子数组，而且前面的子数组元素都大于或者等于后面的子数组的元素。因为递增数组，最小的元素刚好是2个子数组分界线。（第一个元素&gt;=最后一个元素）。</p>
+<p>因此，类似于<code>二分查找</code>的思路。使用前后二个指针分别指向首元素和尾元素，我们可找到中间元素<code>numbers[indexMid]</code>。</p>
+<ol>
+<li>若中间元素位于前面递增子数组，那么它应该&gt;=第一个指针指向的元素，此时数组中最小的元素位于该中间元素的后面。可以把第一个指针指向中间元素，可以缩小范围。</li>
+<li>若中间元素位于后面递增子数组，那么它应该&lt;=第二个指针指向的元素，此时数组中最小的元素位于该中间元素的前面。可以把第二个指针指向中间元素，可以缩小范围。<ol>
+<li>最终这二个指针会相邻（<code>index2-index1 = 1</code>），第二个指针指向的元素为最小的元素，循环终止(<code>break;</code>)。</li>
+</ol>
+</li>
+</ol>
+<p><strong>特例情况：</strong></p>
+<ol>
+<li>0个元素旋转。也就是相当于原始的有序序列。第一个元素自然是最小的元素了。于是若第一个元素小于最后一个元素（参考代码中的while循环不满足的情况直接<code>return numbers[indexMid];</code>），<code>indexMid</code>初始化为<code>index1</code>若此种特例出现，则会返回index1下标的元素。</li>
+<li>二个指针指向的元素和中间元素一样，我们无法判断中间元素属于前后那个子数组，于是只能顺序查找了（<code>minInOrder</code>方法）。</li>
+</ol>
+<h2 id="参考代码："><a href="#参考代码：" class="headerlink" title="参考代码："></a>参考代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Algorithm; </div><div class="line"> </div><div class="line"><span class="comment">/** </span></div><div class="line"> * Created by Lunar on 2016/3/7. </div><div class="line"> * 剑指Offer第八题： </div><div class="line"> */ </div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Min</span> </span>&#123; </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> length)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (numbers == <span class="keyword">null</span> || length &lt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>; </div><div class="line">        &#125; </div><div class="line">        <span class="keyword">int</span> index1 = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> index2 = length - <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> indexMid = index1;</div><div class="line">        <span class="keyword">while</span> (numbers[index1] &gt;= numbers[index2]) &#123;</div><div class="line">            <span class="keyword">if</span> (index2 - index1 == <span class="number">1</span>) &#123;</div><div class="line">                indexMid = index2;</div><div class="line">                <span class="keyword">break</span>; </div><div class="line">            &#125; </div><div class="line"> </div><div class="line">            indexMid = (index1 + index2) / <span class="number">2</span>;</div><div class="line">            <span class="comment">//使用minInOrder的情况。 </span></div><div class="line">            <span class="keyword">if</span> (numbers[index1] == numbers[index2] &amp;&amp; numbers[indexMid] == numbers[index1]) &#123;</div><div class="line">                <span class="keyword">return</span> minInOrder(numbers, index1, index2);</div><div class="line">            &#125; </div><div class="line">            <span class="keyword">if</span> (numbers[indexMid] &gt;= numbers[index1]) &#123;</div><div class="line">                <span class="comment">//中间值大于前面 </span></div><div class="line">                index1 = indexMid;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (numbers[indexMid] &lt;= numbers[index2]) &#123;</div><div class="line">                index2 = indexMid;</div><div class="line">            &#125; </div><div class="line">        &#125; </div><div class="line">        <span class="keyword">return</span> numbers[indexMid];</div><div class="line">    &#125; </div><div class="line"> </div><div class="line">    <span class="comment">//若首尾元素和中间元素相同则无法知道中间元素属于哪个子数组，使用如下顺序查找的方法。 </span></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">minInOrder</span><span class="params">(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> index1, <span class="keyword">int</span> index2)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> result = numbers[index1];</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = index1 + <span class="number">1</span>; i &lt;= index2; ++i) &#123;</div><div class="line">            <span class="keyword">if</span> (numbers[i] &lt; result) &#123;</div><div class="line">                result = numbers[i];</div><div class="line">            &#125; </div><div class="line">        &#125; </div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125; </div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] a = &#123;<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">2</span>&#125;;</div><div class="line">        <span class="keyword">int</span>[] b = &#123;<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>&#125;;</div><div class="line">        System.out.println(min(a, a.length));</div><div class="line">        System.out.print(min(b, b.length));</div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
 
                 <hr>
@@ -187,12 +194,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2016/09/09/剑指Offer-面试题16-反转链表/" data-toggle="tooltip" data-placement="top" title="剑指Offer-面试题16-反转链表">&larr; Previous Post</a>
+                            <a href="/2016/10/09/剑指Offer-面试题21-包含min函数的栈/" data-toggle="tooltip" data-placement="top" title="剑指Offer-面试题21-包含min函数的栈">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2016/09/06/Android-四大组件工作过程之Activity/" data-toggle="tooltip" data-placement="top" title="Android-四大组件工作过程之Activity">Next Post &rarr;</a>
+                            <a href="/2016/10/08/剑指Offer-面试题7-用两个栈实现队列/" data-toggle="tooltip" data-placement="top" title="剑指Offer-面试题7-用两个栈实现队列">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -201,9 +208,9 @@
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                        data-thread-key="2016/09/07/心灵的一片净土/"
-                        data-title="心灵的一片净土"
-                        data-url="http://cai-lei.com/2016/09/07/心灵的一片净土/" >
+                        data-thread-key="2016/10/08/剑指Offer-面试题8-旋转数组的最小数字/"
+                        data-title="剑指Offer-面试题8-旋转数组的最小数字"
+                        data-url="http://cai-lei.com/2016/10/08/剑指Offer-面试题8-旋转数组的最小数字/" >
                     </div>
                 </div>
                 <!-- 多说评论框 end -->

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword"  content="null">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          剑指Offer-面试题42-翻转单词顺序VS左旋转字符串 - 蔡磊的博客 | CaiLei&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://cai-lei.com/2016/09/02/剑指Offer-面试题42-翻转单词顺序VS左旋转字符串/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="http://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">蔡磊的博客</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://cai-lei.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#剑指Offer" title="剑指Offer">剑指Offer</a>
+                        
+                          <a class="tag" href="/tags/#算法" title="算法">算法</a>
+                        
+                    </div>
+                    <h1>剑指Offer-面试题42-翻转单词顺序VS左旋转字符串</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Cai Lei on
+                        2016-09-02
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>昨日腾讯模拟笔试题的考试编程题是这个有些生疏了，特此复习一番。</p>
+<h3 id="题目1-翻转单词顺序："><a href="#题目1-翻转单词顺序：" class="headerlink" title="题目1 翻转单词顺序："></a>题目1 翻转单词顺序：</h3><p>输入一个英文句子，翻转句子中单词的顺序，但单词内字符的顺序不变。为简单起见，标点符号和普通字母一样处理。例如输入字符串”I am a student.”， 则输出”student. a am I”</p>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><ol>
+<li>第一步是翻转句子中的所有字符，就是倒置。</li>
+<li>翻转每个单词中的字符（根据空格隔离单词），于是就翻转正确的单词顺序了。</li>
+</ol>
+<h3 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Algorithm;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by Lunar on 2016/3/24.</div><div class="line"> * 剑指Offer第四十二题：翻转单词顺序VS左旋转字符串</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Reverse</span> </span>&#123;</div><div class="line">    <span class="comment">//子程序：翻转字符串中的一段,若begin end为0-length-1则为翻转这个长句</span></div><div class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">reverse</span><span class="params">(<span class="keyword">char</span>[] chars, <span class="keyword">int</span> begin, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (chars == <span class="keyword">null</span> || begin &gt; end) <span class="keyword">return</span>;</div><div class="line">        <span class="keyword">while</span> (begin &lt; end) &#123;</div><div class="line">            <span class="keyword">char</span> temp = chars[begin];</div><div class="line">            chars[begin] = chars[end];</div><div class="line">            chars[end] = temp;</div><div class="line">            begin++;</div><div class="line">            end--;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//该题目算法</span></div><div class="line">    <span class="function"><span class="keyword">static</span> String <span class="title">reverseSentence</span><span class="params">(String str)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() &lt;= <span class="number">0</span>) <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line"></div><div class="line">        <span class="keyword">char</span>[] chars = str.toCharArray();</div><div class="line">        <span class="keyword">int</span> length = chars.length;</div><div class="line">        <span class="comment">//翻转整个句子I ma a .tneduts</span></div><div class="line"></div><div class="line">        reverse(chars, <span class="number">0</span>, length - <span class="number">1</span>);</div><div class="line">        <span class="keyword">int</span> start = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> end = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (start &lt; length) &#123;</div><div class="line">            <span class="comment">//如果第一个字符就是空格的话,移动二个下标</span></div><div class="line">            <span class="keyword">if</span> (chars[start] == <span class="string">' '</span>) &#123;</div><div class="line">                start++;</div><div class="line">                end++;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">//如果end为字符串的长度即为整个字符串后面（不严谨的说法）或者有空格的话</span></div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (end == length || chars[end] == <span class="string">' '</span>) &#123;</div><div class="line">                reverse(chars, start, end - <span class="number">1</span>);<span class="comment">//翻转这个单词，end - 1为end-1后的值就是单词的末尾坐标，但是end本身还是在空格那</span></div><div class="line">                end++;<span class="comment">//单独一句无所谓最终end仍然加一，变为第二个单词的开始位置</span></div><div class="line">                start = end;<span class="comment">//start,end 位置又相同了，于是第三个else 语句执行。</span></div><div class="line"></div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="comment">//start不动，end直到空格为止。跑到上一个else if 语句</span></div><div class="line">                end++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> String(chars);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//第二个算法：左旋转字符串</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">leftRotateString</span><span class="params">(<span class="keyword">char</span>[] chars, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (chars != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">int</span> length = chars.length;</div><div class="line">            reverse(chars, <span class="number">0</span>, length - <span class="number">1</span>);<span class="comment">//旋转整个“字符串”</span></div><div class="line">            reverse(chars, <span class="number">0</span>, n - <span class="number">1</span>);<span class="comment">//旋转左字符串</span></div><div class="line">            reverse(chars, n, length - <span class="number">1</span>);<span class="comment">//旋转右字符串</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">/*int a = 5;</span></div><div class="line">        System.out.println(a-1);</div><div class="line">        System.out.println(a);*/</div><div class="line">        String s = <span class="string">"student. a am I"</span>;</div><div class="line">        String s2 = <span class="string">"Hello! World"</span>;</div><div class="line">        String s3 = <span class="string">"Wonderful!"</span>;</div><div class="line">        <span class="comment">//第一个算法的测试</span></div><div class="line">        System.out.println(reverseSentence(s));</div><div class="line">        System.out.println(reverseSentence(s2));</div><div class="line">        System.out.println(reverseSentence(s3));</div><div class="line">        <span class="comment">//第二个算法的测试</span></div><div class="line">        String string = <span class="string">"Hello World"</span>;</div><div class="line">        <span class="keyword">char</span>[] chars = string.toCharArray();</div><div class="line">        leftRotateString(chars, <span class="number">5</span>);</div><div class="line">        System.out.println(chars);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="题目2左旋转字符串："><a href="#题目2左旋转字符串：" class="headerlink" title="题目2左旋转字符串："></a>题目2左旋转字符串：</h3><p>字符串的左旋转操作是把字符串前面的若干个字符转移到字符串的尾部。请定义一个函数实现字符串左旋转操作的功能。比如输入字符串“abcdefg”和数字2，该函数将返回左旋转2位得到的结果”cdefgab”.</p>
+<h3 id="思路：-1"><a href="#思路：-1" class="headerlink" title="思路："></a>思路：</h3><ol>
+<li>使用子程序reverse翻转整个字符串（下标为0到length-1）</li>
+<li>使用子程序翻转前面n个字符（下标为0到n-1）</li>
+<li>使用子程序翻转后面部分的字符(下标为n到length-1)</li>
+</ol>
+<p><strong>参考代码见题目1代码中注释为第二个算法处</strong>。</p>
+<p>更多剑指Offer题目代码请戳<a href="https://github.com/Pisceslau/Algorithm/" target="_blank" rel="external">这里</a></p>
+<p><strong>转载请注明出处</strong></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2016/09/03/剑指Offer-面试题44-扑克牌的顺子/" data-toggle="tooltip" data-placement="top" title="剑指Offer-面试题44-扑克牌的顺子">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/09/01/数据结构之树/" data-toggle="tooltip" data-placement="top" title="数据结构之树">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                        data-thread-key="2016/09/02/剑指Offer-面试题42-翻转单词顺序VS左旋转字符串/"
+                        data-title="剑指Offer-面试题42-翻转单词顺序VS左旋转字符串"
+                        data-url="http://cai-lei.com/2016/09/02/剑指Offer-面试题42-翻转单词顺序VS左旋转字符串/" >
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'cailei';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/lu-fei-63-40-74">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/3524495374/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo&amp;is_all=1">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/cailei1">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; 蔡磊的博客 2017 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://cai-lei.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://cai-lei.com/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
